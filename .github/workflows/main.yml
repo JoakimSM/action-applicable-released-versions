@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+    get-released-versions:
+        runs-on: ubuntu-latest
+        outputs:
+            versions: ${{ steps.released-versions.outputs.versions }}
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: ./
+              id: released-versions
+              with:
+                  dev-version: 40
+
+            - name: verify
+              run: if [ $versions != '[38,39]' ]; then exit 1; fi;
+              env:
+                  versions: ${{ steps.released-versions.outputs.versions }}

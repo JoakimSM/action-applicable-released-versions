@@ -1,0 +1,12 @@
+name: 'Applicable released versions'
+description: 'Compute the released backend versions the app will run on'
+inputs:
+    dev-version:
+        description: 'The current dev instance version'
+        required: true
+outputs:
+    versions:
+        description: 'An array containing the released versions the app will run on'
+runs:
+    using: 'node16'
+    main: 'dist/index.js'
