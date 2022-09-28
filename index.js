@@ -3,7 +3,8 @@ const core = require('@actions/core')
 try {
     const devVersion = Number(core.getInput('dev-version'))
     const { minDHIS2Version } = require('./d2.config.js')
-
+    core.info(devVersion + ' ' + minDHIS2Version)
+    /*
     const majorVersion = /^\d+/.exec(devVersion)[0]
     core.info('0:' + majorVersion)
 
@@ -19,6 +20,7 @@ try {
     }
     core.info(`output-versions: ${JSON.stringify(versions)}`)
     core.setOutput('versions', versions)
+    */
 } catch (error) {
     core.setFailed(error.message)
 }

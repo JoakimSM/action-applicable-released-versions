@@ -2827,7 +2827,8 @@ const core = __nccwpck_require__(186)
 try {
     const devVersion = Number(core.getInput('dev-version'))
     const { minDHIS2Version } = __nccwpck_require__(379)
-
+    core.info(devVersion + ' ' + minDHIS2Version)
+    /*
     const majorVersion = /^\d+/.exec(devVersion)[0]
     core.info('0:' + majorVersion)
 
@@ -2843,6 +2844,7 @@ try {
     }
     core.info(`output-versions: ${JSON.stringify(versions)}`)
     core.setOutput('versions', versions)
+    */
 } catch (error) {
     core.setFailed(error.message)
 }
