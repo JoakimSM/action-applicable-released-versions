@@ -11,9 +11,9 @@ jobs:
             - uses: ./
               id: released-versions
               with:
-                  dev-version: 40
+                  dev-version: 2.40
 
             - name: verify
-              run: if [ $versions != '[38,39]' ]; then exit 1; fi;
+              run: if [ $versions != '[2.38,2.39]' ]; then exit 1; fi;
               env:
                   versions: ${{ steps.released-versions.outputs.versions }}
