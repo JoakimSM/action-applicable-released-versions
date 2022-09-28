@@ -6,9 +6,12 @@ try {
 
     const majorVersion = /^\d+/.exec(devVersion)[0]
 
+
     const minorVersionRegex = /[.](\d+)/
-    const devMinorVersion = Number(minorVersionRegex.exec(devVersion)[1])
     const minMinorVersion = Number(minorVersionRegex.exec(minDHIS2Version)[1])
+    const devMinorVersion = Number(minorVersionRegex.exec(devVersion)[1])
+
+    core.info('1: ' + minMinorVersion + ' 2:' + devMinorVersion)
 
     const versions = []
     for (let index = minMinorVersion; index < devMinorVersion; index++) {

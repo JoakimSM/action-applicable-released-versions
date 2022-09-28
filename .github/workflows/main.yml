@@ -11,7 +11,7 @@ jobs:
             - uses: ./
               id: released-versions
               with:
-                  dev-version: 2.40
+                  dev-version: 2.40-SNAPSHOT
 
             - name: verify
               run: if [ $versions != '[2.38,2.39]' ]; then exit 1; fi;
