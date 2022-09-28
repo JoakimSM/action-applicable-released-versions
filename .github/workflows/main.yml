@@ -14,6 +14,6 @@ jobs:
                   dev-version: 2.40-SNAPSHOT
 
             - name: verify
-              run: if [ $versions != '[2.38,2.39]' ]; then exit 1; fi;
+              run: if [ $versions != '["2.38","2.39"]' ]; then exit 1; fi;
               env:
                   versions: ${{ steps.released-versions.outputs.versions }}
