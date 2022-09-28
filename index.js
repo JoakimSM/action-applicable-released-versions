@@ -5,6 +5,7 @@ try {
     const { minDHIS2Version } = require('./d2.config.js')
 
     const majorVersion = /^\d+/.exec(devVersion)[0]
+    core.info('0:' + majorVersion)
 
     const minorVersionRegex = /[.](\d+)/
     const minMinorVersion = Number(minorVersionRegex.exec(minDHIS2Version)[1])
