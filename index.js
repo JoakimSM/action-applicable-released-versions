@@ -6,7 +6,6 @@ try {
 
     const majorVersion = /^\d+/.exec(devVersion)[0]
 
-
     const minorVersionRegex = /[.](\d+)/
     const minMinorVersion = Number(minorVersionRegex.exec(minDHIS2Version)[1])
     const devMinorVersion = Number(minorVersionRegex.exec(devVersion)[1])

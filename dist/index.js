@@ -2827,13 +2827,20 @@ const core = __nccwpck_require__(186)
 try {
     const devVersion = Number(core.getInput('dev-version'))
     const { minDHIS2Version } = __nccwpck_require__(379)
-    const minMinorVersion = Number(/[.](\d+)/.exec(minDHIS2Version)[1])
+
+    const majorVersion = /^\d+/.exec(devVersion)[0]
+
+    const minorVersionRegex = /[.](\d+)/
+    const minMinorVersion = Number(minorVersionRegex.exec(minDHIS2Version)[1])
+    const devMinorVersion = Number(minorVersionRegex.exec(devVersion)[1])
+
+    core.info('1: ' + minMinorVersion + ' 2:' + devMinorVersion)
 
     const versions = []
-    for (let index = minMinorVersion; index < devVersion; index++) {
-        versions.push(index)
+    for (let index = minMinorVersion; index < devMinorVersion; index++) {
+        versions.push(`${majorVersion}.${index}`)
     }
-    core.info('output-versions: ' + JSON.stringify(versions))
+    core.info(`output-versions: ${JSON.stringify(versions)}`)
     core.setOutput('versions', versions)
 } catch (error) {
     core.setFailed(error.message)
