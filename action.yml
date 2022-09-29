@@ -23,8 +23,7 @@ runs:
           with:
               workspace: ${{ env.GITHUB_WORKSPACE }}
 
-        - if: steps.precheck.outputs.max-version != ''
-          uses: dhis2/action-instance-version@v1
+        - uses: dhis2/action-instance-version@v1
           id: instance-version-latest
           with:
               instance-url: ${{ inputs.instance-url-latest }}
