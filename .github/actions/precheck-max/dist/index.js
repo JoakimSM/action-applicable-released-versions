@@ -2805,11 +2805,12 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186)
 
 try {
-    const a = process.env.GITHUB_WORKSPACE;
+    const a = process.env.GITHUB_WORKSPACE
     core.info('a' + JSON.stringify(a))
     const b = core.getInput('workspace')
     core.info('b' + b)
-    const { maxDHIS2Version } = require(a + '/d2.config.js')
+    const { maxDHIS2Version, minDHIS2Version } = require(a + '/d2.config.js')
+    core.info('min' + minDHIS2Version);
     core.setOutput('max-version', maxDHIS2Version || '')
 } catch (error) {
     core.setFailed(error.message)
