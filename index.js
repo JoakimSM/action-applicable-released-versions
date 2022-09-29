@@ -3,6 +3,7 @@ const core = require('@actions/core')
 try {
     const devVersion = core.getInput('dev-version')
     const { minDHIS2Version } = require('./d2.config.js')
+    core.info('min', minDHIS2Version)
 
     const majorVersion = /^\d+/.exec(devVersion)[0]
 
