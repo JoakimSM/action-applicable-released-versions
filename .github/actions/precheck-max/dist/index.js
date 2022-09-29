@@ -2813,11 +2813,14 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186)
 
 try {
+    const a = process.env.GITHUB_WORKSPACE
+    core.info('a', a)
     const { maxDHIS2Version } = __nccwpck_require__(609)
-    core.setOutput('max-version', maxDHIS2Version || "")
+    core.setOutput('max-version', maxDHIS2Version || '')
 } catch (error) {
     core.setFailed(error.message)
 }
+
 })();
 
 module.exports = __webpack_exports__;
