@@ -2816,7 +2816,7 @@ try {
     const a = process.env
     core.info('a', JSON.stringify(a))
     const b = core.getInput('workspace')
-    core.info('b', b);
+    core.info('b', b)
     const { maxDHIS2Version } = __nccwpck_require__(609)
     core.setOutput('max-version', maxDHIS2Version || '')
 } catch (error) {
