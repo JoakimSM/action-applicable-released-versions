@@ -17,6 +17,7 @@ runs:
     using: 'composite'
     steps:
         - run: echo "HER $GITHUB_WORKSPACE"
+          shell: bash
         - uses: ./.github/actions/precheck-max
           id: precheck
 
