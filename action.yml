@@ -21,7 +21,7 @@ runs:
         - uses: ./.github/actions/precheck-max
           id: precheck
           with:
-              workspace: ${{ env.$GITHUB_WORKSPACE }}
+              workspace: ${{ env.GITHUB_WORKSPACE }}
 
         - if: steps.precheck.outputs.max-version != ''
           uses: dhis2/action-instance-version@v1
