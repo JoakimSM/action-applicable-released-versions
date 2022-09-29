@@ -2673,14 +2673,6 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 609:
-/***/ ((module) => {
-
-module.exports = eval("require")("./d2.config.js");
-
-
-/***/ }),
-
 /***/ 491:
 /***/ ((module) => {
 
@@ -2813,11 +2805,11 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186)
 
 try {
-    const a = process.env
+    const a = process.env.GITHUB_WORKSPACE;
     core.info('a' + JSON.stringify(a))
     const b = core.getInput('workspace')
     core.info('b' + b)
-    const { maxDHIS2Version } = __nccwpck_require__(609)
+    const { maxDHIS2Version } = require(a + '/d2.config.js')
     core.setOutput('max-version', maxDHIS2Version || '')
 } catch (error) {
     core.setFailed(error.message)
