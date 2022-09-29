@@ -4,7 +4,9 @@
     "description": "Github action for computing the applicable released backend versions the app should run on",
     "main": "index.js",
     "scripts": {
-        "build": "ncc build index.js --license licenses.txt",
+        "build-legacy-versions": "ncc build ./.github/actions/legacy-versions/index.js -o ./.github/actions/legacy-versions/dist  --license licenses.txt",
+        "build-precheck-max": "ncc build ./.github/actions/precheck-max/index.js -o ./.github/actions/precheck-max/dist --license licenses.txt",
+        "build": "yarn build-legacy-versions & yarn build-precheck-max",
         "lint": "d2-style check",
         "format": "d2-style apply"
     },

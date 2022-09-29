@@ -1,14 +1,14 @@
 const core = require('@actions/core')
 
 try {
-    const devVersion = core.getInput('dev-version')
+    const latestVersion = core.getInput('latest-version')
     const { minDHIS2Version } = require('./d2.config.js')
 
-    const majorVersion = /^\d+/.exec(devVersion)[0]
+    const majorVersion = /^\d+/.exec(latestVersion)[0]
 
     const minorVersionRegex = /[.](\d+)/
     const minMinorVersion = Number(minorVersionRegex.exec(minDHIS2Version)[1])
-    const devMinorVersion = Number(minorVersionRegex.exec(devVersion)[1])
+    const devMinorVersion = Number(minorVersionRegex.exec(latestVersion)[1])
 
     const versions = []
     for (let index = minMinorVersion; index < devMinorVersion; index++) {

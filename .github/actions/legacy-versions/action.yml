@@ -1,0 +1,12 @@
+name: 'Get supported legacy versions'
+description: 'Get the backend versions the app will run on except the latest one'
+inputs:
+    latest-version:
+        description: 'The latest version supported'
+        required: true
+outputs:
+    versions:
+        description: 'An array containing the supported legacy versions'
+runs:
+    using: 'node16'
+    main: 'dist/index.js'

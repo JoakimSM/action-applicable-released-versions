@@ -1,19 +1,21 @@
 on: [push]
 
 jobs:
-    get-released-versions:
+    get-legacy-versions:
         runs-on: ubuntu-latest
         outputs:
-            versions: ${{ steps.released-versions.outputs.versions }}
+            versions: ${{ steps.legacy-versions.outputs.versions }}
         steps:
             - uses: actions/checkout@v2
 
             - uses: ./
-              id: released-versions
+              id: legacy-versions
               with:
-                  dev-version: 2.40-SNAPSHOT
+                  instance-url-latest: https://test.e2e.dhis2.org/dev
+                  username: system
+                  password: System123
 
             - name: verify
               run: if [ $versions != '["2.38","2.39"]' ]; then exit 1; fi;
               env:
-                  versions: ${{ steps.released-versions.outputs.versions }}
+                  versions: ${{ steps.legacy-versions.outputs.versions }}

@@ -1,26 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 379:
-/***/ ((module) => {
-
-const config = {
-    name: 'example',
-    title: 'Example',
-    type: 'app',
-    minDHIS2Version: '2.38',
-    coreApp: true,
-
-    entryPoints: {
-        app: './src/index',
-    },
-}
-
-module.exports = config
-
-
-/***/ }),
-
 /***/ 351:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -2693,6 +2673,14 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ 609:
+/***/ ((module) => {
+
+module.exports = eval("require")("./d2.config.js");
+
+
+/***/ }),
+
 /***/ 491:
 /***/ ((module) => {
 
@@ -2825,14 +2813,14 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186)
 
 try {
-    const devVersion = core.getInput('dev-version')
-    const { minDHIS2Version } = __nccwpck_require__(379)
+    const latestVersion = core.getInput('latest-version')
+    const { minDHIS2Version } = __nccwpck_require__(609)
 
-    const majorVersion = /^\d+/.exec(devVersion)[0]
+    const majorVersion = /^\d+/.exec(latestVersion)[0]
 
     const minorVersionRegex = /[.](\d+)/
     const minMinorVersion = Number(minorVersionRegex.exec(minDHIS2Version)[1])
-    const devMinorVersion = Number(minorVersionRegex.exec(devVersion)[1])
+    const devMinorVersion = Number(minorVersionRegex.exec(latestVersion)[1])
 
     const versions = []
     for (let index = minMinorVersion; index < devMinorVersion; index++) {

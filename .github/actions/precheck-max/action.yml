@@ -1,0 +1,8 @@
+name: 'Precheck max version'
+description: 'Gets the max version from d2 config'
+outputs:
+    max-version:
+        description: 'The max version from config'
+runs:
+    using: 'node16'
+    main: 'dist/index.js'
