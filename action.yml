@@ -16,17 +16,17 @@ outputs:
 runs:
     using: 'composite'
     steps:
-      - uses: ./.github/actions/precheck-max
-        id: precheck
-      
-      - if: steps.precheck.outputs.max-version != ""
-        uses: dhis2/action-instance-version@v1
-        id: instance-version-latest
-        with:
-          instance-url: ${{ inputs.instance-url-latest }}
-          username: ${{ inputs.username }}
-          password: ${{ inputs.password }}
-        
-      - uses: ./.github/actions/legacy-versions
-        with:
-          latest-version: ${{ steps.precheck.outputs.max-version || (steps.instance-version-latest.outputs && steps.instance-version-latest.outputs.version) }}
+        - uses: ./.github/actions/precheck-max
+          id: precheck
+
+        - if: steps.precheck.outputs.max-version != ""
+          uses: dhis2/action-instance-version@v1
+          id: instance-version-latest
+          with:
+              instance-url: ${{ inputs.instance-url-latest }}
+              username: ${{ inputs.username }}
+              password: ${{ inputs.password }}
+
+        - uses: ./.github/actions/legacy-versions
+          with:
+              latest-version: ${{ steps.precheck.outputs.max-version || (steps.instance-version-latest.outputs && steps.instance-version-latest.outputs.version) }}
