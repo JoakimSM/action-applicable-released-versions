@@ -19,7 +19,7 @@ runs:
         - uses: ./.github/actions/precheck-max
           id: precheck
 
-        - if: steps.precheck.outputs.max-version != ""
+        - if: steps.precheck.outputs.max-version != ''
           uses: dhis2/action-instance-version@v1
           id: instance-version-latest
           with:
