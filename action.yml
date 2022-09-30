@@ -21,8 +21,10 @@ runs:
     using: 'composite'
     steps:
         - uses: actions/checkout@v2
+          with:
+            path: ./action-supported-legacy-versions
 
-        - uses: ./.github/actions/precheck-max-version
+        - uses: ./action-supported-legacy-versions/.github/actions/precheck-max-version
           working-directory: ${{ github.action_path }}
           id: precheck
           with:
@@ -36,7 +38,7 @@ runs:
               username: ${{ inputs.username }}
               password: ${{ inputs.password }}
 
-        - uses: ./.github/actions/legacy-versions
+        - uses: ./action-supported-legacy-versions/.github/actions/legacy-versions
           id: legacy-versions
           with:
               config-dir: ${{ inputs.config-dir }}
