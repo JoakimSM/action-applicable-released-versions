@@ -4,7 +4,11 @@ jobs:
     max-unspecified:
         runs-on: ubuntu-latest
         steps:
-            - uses: ./what
+            - uses: actions/checkout@v2
+              with:
+                  path: ./action-supported-legacy-versions/
+
+            - uses: ./action-supported-legacy-versions
               id: legacy-versions
               with:
                   instance-url-latest: https://test.e2e.dhis2.org/ca-test-2.39
@@ -19,7 +23,11 @@ jobs:
     max-specified:
         runs-on: ubuntu-latest
         steps:
-            - uses: ./what
+            - uses: actions/checkout@v2
+              with:
+                  path: ./action-supported-legacy-versions/
+
+            - uses: ./action-supported-legacy-versions
               id: legacy-versions
               with:
                   config-dir: ./examples/max-version-specified
