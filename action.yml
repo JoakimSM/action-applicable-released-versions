@@ -21,6 +21,7 @@ runs:
     using: 'composite'
     steps:
         - run: echo "$GITHUB_ACTION_REPOSITORY"
+          shell: bash
         - uses: actions/checkout@v2
           with:
               repository: JoakimSM/action-supported-legacy-versions
