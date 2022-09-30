@@ -9,13 +9,13 @@ jobs:
             - uses: ./
               id: legacy-versions
               with:
-                  instance-url-latest: https://test.e2e.dhis2.org/dev
+                  instance-url-latest: https://test.e2e.dhis2.org/ca-test-2.39
                   username: system
                   password: System123
                   config-dir: ./examples/max-version-unspecified
 
             - name: verify
-              run: if [ $versions != '["2.38","2.39"]' ]; then exit 1; fi;
+              run: if [ $versions != '["2.38"]' ]; then exit 1; fi;
               env:
                   versions: ${{ steps.legacy-versions.outputs.versions }}
     max-specified:
