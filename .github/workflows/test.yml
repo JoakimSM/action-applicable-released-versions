@@ -23,7 +23,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
-            - uses: ./action-supported-legacy-versions
+            - uses: ./
               id: legacy-versions
               with:
                   config-dir: ./examples/max-version-specified
