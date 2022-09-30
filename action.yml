@@ -20,6 +20,7 @@ outputs:
 runs:
     using: 'composite'
     steps:
+        - run: echo "$GITHUB_ACTION_REPOSITORY"
         - uses: actions/checkout@v2
           with:
               repository: JoakimSM/action-supported-legacy-versions
