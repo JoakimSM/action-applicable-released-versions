@@ -1,0 +1,34 @@
+on: [push]
+
+jobs:
+    max-unspecified:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: ./
+              id: legacy-versions
+              with:
+                  instance-url-latest: https://test.e2e.dhis2.org/dev
+                  username: system
+                  password: System123
+                  config-dir: ./examples/max-version-unspecified
+
+            - name: verify
+              run: if [ $versions != '["2.38","2.39"]' ]; then exit 1; fi;
+              env:
+                  versions: ${{ steps.legacy-versions.outputs.versions }}
+    max-specified:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: ./
+              id: legacy-versions
+              with:
+                  config-dir: ./examples/max-version-specified
+
+            - name: verify
+              run: if [ $versions != '["2.38","2.39"]' ]; then exit 1; fi;
+              env:
+                  versions: ${{ steps.legacy-versions.outputs.versions }}

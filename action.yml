@@ -20,7 +20,7 @@ outputs:
 runs:
     using: 'composite'
     steps:
-        - uses: ./.github/actions/precheck-max
+        - uses: ./.github/actions/precheck-max-version
           id: precheck
           with:
               config-dir: ${{ inputs.config-dir }}

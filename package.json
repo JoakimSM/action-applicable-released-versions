@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "build-legacy-versions": "ncc build ./.github/actions/legacy-versions/index.js -o ./.github/actions/legacy-versions/dist  --license licenses.txt",
-        "build-precheck-max": "ncc build ./.github/actions/precheck-max/index.js -o ./.github/actions/precheck-max/dist --license licenses.txt",
-        "build": "yarn build-legacy-versions & yarn build-precheck-max",
+        "build-precheck-max-version": "ncc build ./.github/actions/precheck-max-version/index.js -o ./.github/actions/precheck-max-version/dist --license licenses.txt",
+        "build": "yarn build-legacy-versions & yarn build-precheck-max-version",
         "lint": "d2-style check",
         "format": "d2-style apply"
     },
