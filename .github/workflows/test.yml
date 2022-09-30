@@ -5,10 +5,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-              with:
-                  path: ./action-supported-legacy-versions/
 
-            - uses: ./action-supported-legacy-versions
+            - uses: ./
               id: legacy-versions
               with:
                   instance-url-latest: https://test.e2e.dhis2.org/ca-test-2.39
