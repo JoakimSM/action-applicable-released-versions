@@ -3,7 +3,7 @@ const config = {
     title: 'Example',
     type: 'app',
     minDHIS2Version: '2.38',
-    maxDHIS2Version: '2.39',
+    maxDHIS2Version: '2.40',
     coreApp: true,
 
     entryPoints: {
