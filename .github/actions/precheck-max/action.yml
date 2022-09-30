@@ -1,8 +1,5 @@
 name: 'Precheck max version'
 description: 'Gets the max version from d2 config'
-inputs:
-    workspace:
-        description: 'WHAT'
 outputs:
     max-version:
         description: 'The max version from config'

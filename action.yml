@@ -16,14 +16,11 @@ outputs:
 runs:
     using: 'composite'
     steps:
-        - run: echo "HER $GITHUB_WORKSPACE"
-          shell: bash
         - uses: ./.github/actions/precheck-max
           id: precheck
-          with:
-              workspace: ${{ env.GITHUB_WORKSPACE }}
 
-        - uses: dhis2/action-instance-version@v1
+        - if: steps.precheck.outputs.max-version == ''
+          uses: dhis2/action-instance-version@v1
           id: instance-version-latest
           with:
               instance-url: ${{ inputs.instance-url-latest }}

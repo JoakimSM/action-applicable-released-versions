@@ -1,8 +1,10 @@
+const path = require('path')
 const core = require('@actions/core')
 
 try {
     const latestVersion = core.getInput('latest-version')
-    const { minDHIS2Version } = require('./d2.config.js')
+    const configPath = path.join(process.env.GITHUB_WORKSPACE, 'd2.config.js')
+    const { minDHIS2Version } = require(configPath)
 
     const majorVersion = /^\d+/.exec(latestVersion)[0]
 

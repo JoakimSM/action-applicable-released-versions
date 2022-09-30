@@ -2673,14 +2673,6 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 609:
-/***/ ((module) => {
-
-module.exports = eval("require")("./d2.config.js");
-
-
-/***/ }),
-
 /***/ 491:
 /***/ ((module) => {
 
@@ -2810,11 +2802,13 @@ module.exports = require("util");
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
+const path = __nccwpck_require__(17)
 const core = __nccwpck_require__(186)
 
 try {
     const latestVersion = core.getInput('latest-version')
-    const { minDHIS2Version } = __nccwpck_require__(609)
+    const configPath = path.join(process.env.GITHUB_WORKSPACE, 'd2.config.js')
+    const { minDHIS2Version } = require(configPath)
 
     const majorVersion = /^\d+/.exec(latestVersion)[0]
 
