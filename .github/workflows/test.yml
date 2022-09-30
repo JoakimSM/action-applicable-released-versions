@@ -10,8 +10,8 @@ jobs:
               id: legacy-versions
               with:
                   instance-url-latest: https://test.e2e.dhis2.org/ca-test-2.39
-                  username: system
-                  password: System123
+                  username: admin
+                  password: district
                   config-dir: ./examples/max-version-unspecified
 
             - name: verify
