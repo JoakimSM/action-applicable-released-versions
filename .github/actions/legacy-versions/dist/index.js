@@ -2807,7 +2807,11 @@ const core = __nccwpck_require__(186)
 
 try {
     const latestVersion = core.getInput('latest-version')
-    const configPath = path.join(process.env.GITHUB_WORKSPACE, 'd2.config.js')
+    const configPath = path.join(
+        process.env.GITHUB_WORKSPACE,
+        core.getInput('config-dir'),
+        'd2.config.js'
+    )
     const { minDHIS2Version } = require(configPath)
 
     const majorVersion = /^\d+/.exec(latestVersion)[0]

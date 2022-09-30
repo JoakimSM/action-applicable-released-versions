@@ -10,6 +10,9 @@ inputs:
     password:
         description: 'The DHIS2 password for authentication. Required if maxDHIS2Version is not specified in d2.config'
         required: false
+    config-dir:
+        description: 'Optionally specifiy a directory for the d2.config file. The default is the workspace root'
+        default: './'
 outputs:
     versions:
         description: 'An array containing the supported legacy versions'
@@ -19,6 +22,8 @@ runs:
     steps:
         - uses: ./.github/actions/precheck-max
           id: precheck
+          with:
+              config-dir: ${{ inputs.config-dir }}
 
         - if: steps.precheck.outputs.max-version == null
           uses: dhis2/action-instance-version@v1
@@ -31,4 +36,5 @@ runs:
         - uses: ./.github/actions/legacy-versions
           id: legacy-versions
           with:
+              config-dir: ${{ inputs.config-dir }}
               latest-version: ${{ steps.precheck.outputs.max-version || steps.instance-version-latest.outputs.version }}
