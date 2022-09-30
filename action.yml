@@ -20,6 +20,8 @@ outputs:
 runs:
     using: 'composite'
     steps:
+        - uses: actions/checkout@v2
+
         - uses: ./.github/actions/precheck-max-version
           id: precheck
           with:
