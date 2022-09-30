@@ -22,7 +22,8 @@ runs:
     steps:
         - uses: actions/checkout@v2
 
-        - uses: ${GITHUB_ACTION_PATH}/.github/actions/precheck-max-version
+        - uses: ./.github/actions/precheck-max-version
+          working-directory: ${{ github.action_path }}
           id: precheck
           with:
               config-dir: ${{ inputs.config-dir }}
