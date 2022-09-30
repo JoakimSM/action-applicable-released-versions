@@ -11,8 +11,8 @@ inputs:
         description: 'The DHIS2 password for authentication. Required if maxDHIS2Version is not specified in d2.config'
         required: false
     config-dir:
-        description: 'Optionally specifiy a directory for the d2.config file. The default is the workspace root'
-        default: './'
+        description: 'Optionally specifiy a relative directory for the d2.config file'
+        default: ./
 outputs:
     versions:
         description: 'An array containing the supported legacy versions'

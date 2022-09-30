@@ -1,5 +1,8 @@
 name: 'Precheck max version'
 description: 'Gets the max version from d2 config'
+inputs:
+    config-dir:
+        description: 'relative directory for the d2.config file'
 outputs:
     max-version:
         description: 'The max version from config if any'

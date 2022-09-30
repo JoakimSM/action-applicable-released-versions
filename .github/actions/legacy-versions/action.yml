@@ -4,6 +4,8 @@ inputs:
     latest-version:
         description: 'The latest version supported'
         required: true
+    config-dir:
+        description: 'relative directory for the d2.config file'
 outputs:
     versions:
         description: 'An array containing the supported legacy versions'
