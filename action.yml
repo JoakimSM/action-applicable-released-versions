@@ -20,15 +20,8 @@ outputs:
 runs:
     using: 'composite'
     steps:
-        - run: |
-              cp -r $GITHUB_ACTION_PATH/.github/actions ./action-supported-legacy-versions
+        - run: cp -r $GITHUB_ACTION_PATH/.github/actions ./action-supported-legacy-versions
           shell: bash
-
-        # - uses: actions/checkout@v2
-        #  with:
-        #      repository: JoakimSM/action-supported-legacy-versions
-        #      ref: v2
-        #      path: ./action-supported-legacy-versions/
 
         - uses: ./action-supported-legacy-versions/precheck-max-version
           id: precheck

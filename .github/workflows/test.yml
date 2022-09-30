@@ -22,13 +22,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-              with:
-                  path: ./action-supported-legacy-versions/
 
             - uses: ./action-supported-legacy-versions
               id: legacy-versions
               with:
-                  config-dir: ./action-supported-legacy-versions/examples/max-version-specified
+                  config-dir: ./examples/max-version-specified
 
             - name: verify
               run: if [ $versions != '["2.38","2.39"]' ]; then exit 1; fi;
