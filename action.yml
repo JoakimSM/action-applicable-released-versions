@@ -22,7 +22,7 @@ runs:
     steps:
         - uses: actions/checkout@v2
           with:
-            path: ./action-supported-legacy-versions
+              path: ./action-supported-legacy-versions
 
         - uses: ./action-supported-legacy-versions/.github/actions/precheck-max-version
           working-directory: ${{ github.action_path }}
