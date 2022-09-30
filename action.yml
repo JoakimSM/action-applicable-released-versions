@@ -22,7 +22,8 @@ runs:
     steps:
         - uses: actions/checkout@v2
           with:
-              repository: JoakimSM/action-supported-legacy-versions@v2
+              repository: JoakimSM/action-supported-legacy-versions
+              ref: v2
               path: ./action-supported-legacy-versions/
 
         - uses: ./action-supported-legacy-versions/.github/actions/precheck-max-version
