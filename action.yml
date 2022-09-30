@@ -20,15 +20,17 @@ outputs:
 runs:
     using: 'composite'
     steps:
-        - run: echo "$GITHUB_ACTION_REPOSITORY HEI $GITHUB_SERVER_URL"
+        - run: |
+              cp -r $GITHUB_ACTION_PATH/.github/actions ./action-supported-legacy-versions
           shell: bash
-        - uses: actions/checkout@v2
-          with:
-              repository: JoakimSM/action-supported-legacy-versions
-              ref: v2
-              path: ./action-supported-legacy-versions/
 
-        - uses: ./action-supported-legacy-versions/.github/actions/precheck-max-version
+        # - uses: actions/checkout@v2
+        #  with:
+        #      repository: JoakimSM/action-supported-legacy-versions
+        #      ref: v2
+        #      path: ./action-supported-legacy-versions/
+
+        - uses: ./action-supported-legacy-versions/precheck-max-version
           id: precheck
           with:
               config-dir: ${{ inputs.config-dir }}
@@ -41,7 +43,7 @@ runs:
               username: ${{ inputs.username }}
               password: ${{ inputs.password }}
 
-        - uses: ./action-supported-legacy-versions/.github/actions/legacy-versions
+        - uses: ./action-supported-legacy-versions/legacy-versions
           id: legacy-versions
           with:
               config-dir: ${{ inputs.config-dir }}
