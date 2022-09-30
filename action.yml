@@ -25,7 +25,6 @@ runs:
               path: ./action-supported-legacy-versions/
 
         - uses: ./action-supported-legacy-versions/.github/actions/precheck-max-version
-          working-directory: ${{ github.action_path }}
           id: precheck
           with:
               config-dir: ${{ inputs.config-dir }}
