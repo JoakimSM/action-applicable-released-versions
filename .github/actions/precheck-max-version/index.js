@@ -2,6 +2,7 @@ const path = require('path')
 const core = require('@actions/core')
 
 try {
+    core.info(JSON.stringify(process.env))
     const configPath = path.join(
         process.env.GITHUB_WORKSPACE,
         core.getInput('config-dir'),

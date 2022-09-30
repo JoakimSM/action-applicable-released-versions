@@ -2806,6 +2806,7 @@ const path = __nccwpck_require__(17)
 const core = __nccwpck_require__(186)
 
 try {
+    core.info(JSON.stringify(process.env))
     const configPath = path.join(
         process.env.GITHUB_WORKSPACE,
         core.getInput('config-dir'),
