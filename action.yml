@@ -20,7 +20,7 @@ outputs:
 runs:
     using: 'composite'
     steps:
-        - run: echo $GITHUB_ACTION_REPOSITORY
+        - run: echo "$GITHUB_ACTION_REPOSITORY HEI $GITHUB_SERVER_URL"
           shell: bash
         - uses: actions/checkout@v2
           with:
