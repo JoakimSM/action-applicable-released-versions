@@ -14,7 +14,7 @@ jobs:
                   instance-url-latest: https://test.e2e.dhis2.org/ca-test-2.39
                   username: system
                   password: System123
-                  config-dir: ./examples/max-version-unspecified
+                  config-dir: ./action-supported-legacy-versions/examples/max-version-unspecified
 
             - name: verify
               run: if [ $versions != '["2.38"]' ]; then exit 1; fi;
@@ -30,7 +30,7 @@ jobs:
             - uses: ./action-supported-legacy-versions
               id: legacy-versions
               with:
-                  config-dir: ./examples/max-version-specified
+                  config-dir: ./action-supported-legacy-versions/examples/max-version-specified
 
             - name: verify
               run: if [ $versions != '["2.38","2.39"]' ]; then exit 1; fi;
