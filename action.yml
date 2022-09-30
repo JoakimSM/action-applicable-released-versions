@@ -13,6 +13,7 @@ inputs:
 outputs:
     versions:
         description: 'An array containing the supported legacy versions'
+        value: ${{ steps.legacy-versions.outputs.versions }}
 runs:
     using: 'composite'
     steps:
@@ -28,5 +29,6 @@ runs:
               password: ${{ inputs.password }}
 
         - uses: ./.github/actions/legacy-versions
+          id: legacy-versions
           with:
-              latest-version: ${{ steps.precheck.outputs.max-version || (steps.instance-version-latest.outputs && steps.instance-version-latest.outputs.version) }}
+              latest-version: ${{ steps.precheck.outputs.max-version || steps.instance-version-latest.outputs.version }}
